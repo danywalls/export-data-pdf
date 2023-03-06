@@ -1,4 +1,4 @@
-import { NbaService } from './services/nba.service';
+import { NbaService } from './nba.service';
 import { Component, inject } from '@angular/core';
 import { PDFExportComponent } from '@progress/kendo-angular-pdf-export';
 import { firstValueFrom } from 'rxjs';
