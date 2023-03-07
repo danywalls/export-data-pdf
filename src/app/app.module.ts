@@ -5,12 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PlayerRow } from './components/player.row.component';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { PlayerRow } from './player-row/player-row.component';
 import { FormsModule } from '@angular/forms';
-
-
-
 
 @NgModule({
   declarations: [

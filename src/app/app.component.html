@@ -3,43 +3,51 @@
 </header>
 <main>
 
-<div class="players" *ngIf="players$ | async as players">
-  <div class="message-area">
-    <p>Feel free to save the first 10 players form API. <button kendoButton (click)="pdfArea.saveAs('players.pdf')">Save</button></p>
-  </div>
-  <kendo-pdf-export #pdfArea>
-    <div *ngFor="let player of players.slice(0, 5)">
-      <br />
-      <player [player]="player"></player>
+  <div class="players" *ngIf="players$ | async as players">
+    <!-- <div class="message-area">
+      <p>Feel free to save the first 10 players form API.
+        <button kendoButton (click)="pdfArea.saveAs('players.pdf')">Save</button>
+      </p>
     </div>
-  </kendo-pdf-export>
-</div>
-
-<div class="terms-conditions">
-  <p>If you want to download all players, first type your name and accept terms and conditions.</p>
-  <label for="userName">Your Name: </label><input id="userName" [(ngModel)]="userName"/>
-  <label for="terms-check">Accept: </label><input id="terms-check" #termsCheck type="checkbox" [disabled]="!userName" kendoCheckBox (change)="terms.saveAs(userName)" />
-  <div class="hide">
-    <kendo-pdf-export #terms paperSize="A4" margin="2cm">
-      <h1>Terms and conditions</h1>
-      <p>{{userName}} thanks for accept terms and conditions</p>
-    </kendo-pdf-export>
-  </div>
-</div>
-
-<div class="remote-pdf" *ngIf="termsCheck.checked">
-  <h2>Thanks {{userName}} , you have access to download all data</h2>
-  <button kendoButton (click)="getAll(allData)">{{getAllBtnStatus}}</button>
-  <div class="hide">
-    <kendo-pdf-export  #allData paperSize="A4" margin="2cm">
-      <ul>
-        <li *ngFor="let player of remoteData">
+    <kendo-pdf-export #pdfArea>
+      <ul *ngFor="let player of players.slice(0, 5)">
+        <li>
           <player [player]="player"></player>
         </li>
       </ul>
-      <span>Report by {{userName}}</span>
     </kendo-pdf-export>
+
+  -->
+    <div class="hide">
+      <kendo-pdf-export #termsPdf paperSize="A4" margin="2cm">
+        <h1>Terms and conditions</h1>
+        <p>{{userName}} has accepted the terms and conditions.</p>
+      </kendo-pdf-export>
+    </div>
+
+    <p>To download all players, first type your name and accept the terms and conditions.</p>
+
+    <label for="userName">Your Name: </label>
+    <input id="userName" [(ngModel)]="userName" />
+
+    <label for="terms-check">Accept: </label>
+    <input id="terms-check" #termsCheck type="checkbox" [disabled]="!userName" kendoCheckBox
+      (change)="termsPdf.saveAs(userName)" />
+    <div class="remote-pdf" *ngIf="termsCheck.checked">
+      <h2>Thanks {{userName}} , you have access to download all data.</h2>
+      <button kendoButton (click)="getAll(allData)">{{getAllBtnStatus}}</button>
+      <div class="hide">
+        <kendo-pdf-export #allData paperSize="A4" margin="2cm">
+          <ul>
+            <li *ngFor="let player of remoteData">
+              <player [player]="player"></player>
+            </li>
+          </ul>
+          <span>Report by {{userName}}</span>
+        </kendo-pdf-export>
+      </div>
+    </div>
   </div>
-</div>
+
 </main>
-<footer> I love Kendo</footer>
+<footer> I love Kendo UI.</footer>
