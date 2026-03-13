@@ -1,4 +1,18 @@
-# ExportDataPdf
+> [!NOTE]
+> This repository contains the source code for the article: **[How to Export Data to PDF with Kendo PDF Export and Angular](https://www.telerik.com/blogs/exporting-data-pdf-kendo-pdf-export-angular)** originally published on [Telerik Blogs](https://www.telerik.com/blogs).
+
+# How to Export Data to PDF with Kendo PDF Export and Angular
+
+## Project Summary
+Learn how to enable users to export data to PDF in Angular applications using the Kendo UI for Angular's PDF Export component.
+
+## How to Run
+### Installation
+1. `npm install` 
+
+### Running
+1. `ng serve` 
+2. Click the 'Export to PDF' button to generate a PDF document from the data list.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
@@ -25,3 +39,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+---
+Stay connected: [@danywalls](https://twitter.com/danywalls)
